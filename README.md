@@ -3,5 +3,3 @@ Guess the number challenge game
 
 
 
-
-echo #GMN-Game
