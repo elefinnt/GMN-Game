@@ -10,10 +10,11 @@
 
 //an event is something that happens on the page - mouse click, key press etc. Event listener waits for
 //a certain event to happen and then waits for it.
-
+//sr
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20; //needs to be let because we want to adjust it
-document.querySelector('.number').textContent = secretNumber;
+//
+document.querySelector('.number').textContent = secretNumber; //links the .number content to the secretNumber cost.
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -24,9 +25,13 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = 'Correct number!';
   } else if (guess > secretNumber) {
-    document.querySelector('.message').textContent = 'Too high!';
-    score--;
-    document.querySelector('.score').textContent = score;
+    if (score > 0) {
+      document.querySelector('.message').textContent = 'Too high!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = 'You lost the game';
+    }
   } else if (guess < secretNumber) {
     document.querySelector('.message').textContent = 'Too Low!';
     score--;
